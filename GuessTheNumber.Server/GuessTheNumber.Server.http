@@ -1,0 +1,12 @@
+@GuessTheNumber_Server_HostAddress = https://localhost:7069
+
+GET {{GuessTheNumber_Server_HostAddress}}/weatherforecast
+
+###
+
+POST {{GuessTheNumber_Server_HostAddress}}/api/v1/games
+Content-Type: application/json
+
+{
+  "difficulty_level": "Easy"
+}
