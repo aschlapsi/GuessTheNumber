@@ -18,7 +18,7 @@ namespace GuessTheNumber.Server.Controllers
         [HttpPost]
         public GameDTO StartGame(StartGameRequest startGameRequest)
         {
-            var game = Game.Start(1, startGameRequest.ToDifficultyLevel(), _random);
+            var game = Game.Start(_repository.NextId(), startGameRequest.ToDifficultyLevel(), _random);
             _repository.Create(game);
             return game.ToDTO();
         }
