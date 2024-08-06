@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
 using System.Text;
 using System.Text.Json;
 
@@ -13,7 +12,7 @@ namespace GuessTheNumber.Tests
             using var factory = new WebApplicationFactory<Program>();
             var client = factory.CreateClient();
 
-            var content = new StringContent(JsonSerializer.Serialize(new
+            using var content = new StringContent(JsonSerializer.Serialize(new
             {
                 difficulty_level = "Easy"
             }), Encoding.UTF8, "application/json");
