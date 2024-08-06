@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace GuessTheNumber.Server.Controllers
 {
@@ -8,9 +7,14 @@ namespace GuessTheNumber.Server.Controllers
     public class GamesController : ControllerBase
     {
         [HttpPost]
-        public IActionResult CreateGame()
+        public GameDTO CreateGame()
         {
-            return Ok();
+            return new GameDTO
+            {
+                Id = 1,
+                RangeMin = 1,
+                RangeMax = 20,
+            };
         }
     }
 }
