@@ -22,5 +22,28 @@ namespace GuessTheNumber.Server.Controllers
             _repository.Create(game);
             return game.ToDTO();
         }
+
+        [HttpPost("{gameId:int}")]
+        public async Task<GuessNumberResult> GuessNumber(int gameId, GuessNumberRequest guessNumberRequest)
+        {
+            var game = await _repository.Get(gameId);
+            return new GuessNumberResult
+            {
+                Message = GetMessage(game.Guess(guessNumberRequest.Number))
+            };
+        }
+
+        private string GetMessage(Game.GuessResult guessResult)
+        {
+            switch (guessResult)
+            {
+                case Game.GuessResult.TooLow:
+                    return "too low";
+                case Game.GuessResult.TooHigh:
+                    return "too high";
+                default:
+                    return "correct";
+            }
+        }
     }
 }
