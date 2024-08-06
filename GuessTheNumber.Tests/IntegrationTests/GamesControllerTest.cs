@@ -4,7 +4,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 
-namespace GuessTheNumber.Tests
+namespace GuessTheNumber.Tests.IntegrationTests
 {
     public class GamesControllerTest
     {
