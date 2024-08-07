@@ -33,6 +33,7 @@ namespace GuessTheNumber.Tests.UnitTests
             var result = await controller.GuessNumber(game.Id, new GuessNumberRequest { Number = number });
 
             Assert.Equal(expectedMessage, result.Message);
+            Assert.Equal(number, result.Number);
         }
     }
 }

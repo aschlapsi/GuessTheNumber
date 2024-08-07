@@ -29,6 +29,7 @@ namespace GuessTheNumber.Server.Controllers
             var game = await _repository.Get(gameId);
             return new GuessNumberResult
             {
+                Number = guessNumberRequest.Number,
                 Message = GetMessage(game.Guess(guessNumberRequest.Number))
             };
         }
