@@ -46,7 +46,15 @@ export default defineConfig({
             '^/weatherforecast': {
                 target,
                 secure: false
-            }
+            },
+            '^/api/v1/games': {
+                target,
+                secure: false
+            },
+            '^/api/v1/games/*': {
+                target,
+                secure: false
+            },
         },
         port: 5173,
         https: {
