@@ -10,3 +10,12 @@ Content-Type: application/json
 {
   "difficulty_level": "Easy"
 }
+
+###
+
+POST {{GuessTheNumber_Server_HostAddress}}/api/v1/games/1
+Content-Type: application/json
+
+{
+  "Number": 5
+}
